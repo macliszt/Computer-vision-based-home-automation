@@ -21,7 +21,7 @@ def display_name(frame, left, right, bottom, top, name, box_color, timeout, last
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
 
-def run_face_recognition(access_callback=None, image_folder="/home/macliszt/Face/Images", process_every_n_frames=3, recognition_tolerance=0.5):
+def run_face_recognition(access_callback=None, image_folder="/Path/to your/image/folder", process_every_n_frames=3, recognition_tolerance=0.5):
     sfr = SimpleFacerec()
     sfr.load_encoding_images(image_folder)
 
