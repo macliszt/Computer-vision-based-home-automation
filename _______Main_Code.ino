@@ -24,9 +24,9 @@ MFRC522 rfid(SS_PIN, RST_PIN);
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 
-byte alexUID[] = {0x73, 0x4A, 0x1B, 0xE3};
-byte profUID[] = {0x23, 0x41, 0x62, 0x04};
-byte macUID[] = {0x03, 0xF6, 0x40, 0x10};
+byte user1UID[] = {0x73, 0x4A, 0x1B, 0xE3}; //You can cange the UID codes to your own UID
+byte user2UID[] = {0x23, 0x41, 0x62, 0x04};
+byte user3UID[] = {0x03, 0xF6, 0x40, 0x10};
 
 Servo door;
 int servoPin = 9;
@@ -237,24 +237,25 @@ void checkRFIDCard() {
     return;
   }
 
+  //For the print statements, you can change the user tou your names
   if (compareUID(rfid.uid.uidByte, rfid.uid.size, alexUID)) {
     lcd.clear();
     lcd.setCursor(0, 1);
-    lcd.print("Welcome Alex!");
+    lcd.print("Welcome user1");
     openDoor();
     delay(1000);
   } 
   else if (compareUID(rfid.uid.uidByte, rfid.uid.size, profUID)) {
     lcd.clear();
     lcd.setCursor(0, 1);
-    lcd.print("Welcome Prof!");
+    lcd.print("Welcome user2");
     openDoor();
     delay(1000);
   } 
   else if (compareUID(rfid.uid.uidByte, rfid.uid.size, macUID)) {
     lcd.clear();
     lcd.setCursor(0, 1);
-    lcd.print("Welcome Mac!");
+    lcd.print("Welcome user3");
     openDoor();
     delay(1000);
   }
